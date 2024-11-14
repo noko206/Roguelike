@@ -37,7 +37,7 @@ mesh = SubResource("PlaneMesh_go2tq")
 shape = SubResource("BoxShape3D_j64gd")
 
 [node name="player" parent="." instance=ExtResource("1_p51h7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0157788, -0.0529803, 0.012177)
 
 [node name="Camera3D" type="Camera3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 0.971491, 0.237076, 0, -0.237076, 0.971491, 0, 1.95972, 2.58418)

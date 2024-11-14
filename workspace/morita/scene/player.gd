@@ -32,6 +32,12 @@ func _physics_process(delta: float) -> void:
 
 	if (velocity.x or velocity.z) and is_on_floor():
 		move()
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jump()
+	if velocity.y < 0:
+		fall()
+	if velocity == Vector3.ZERO and not velocity.z:
+		idle()
 
 	move_and_slide()
 func idle():
