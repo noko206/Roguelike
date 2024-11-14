@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://86in48o6ls7s"]
+[gd_scene load_steps=11 format=3 uid="uid://86in48o6ls7s"]
 
 [ext_resource type="PackedScene" uid="uid://i8s804e1efdh" path="res://workspace/morita/scene/player.tscn" id="1_p51h7"]
 
@@ -23,6 +23,18 @@ size = Vector2(10, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_j64gd"]
 size = Vector3(10, 0.1, 10)
 
+[sub_resource type="BoxMesh" id="BoxMesh_mg2ap"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_bvycr"]
+albedo = Color(0.838746, 0.228406, 0.724065, 1)
+emission = Color(0.323087, 0.257623, 0.474968, 1)
+edge_fade = 0.151572
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oclob"]
+next_pass = SubResource("FogMaterial_bvycr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ph3k0"]
+
 [node name="world" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -37,7 +49,17 @@ mesh = SubResource("PlaneMesh_go2tq")
 shape = SubResource("BoxShape3D_j64gd")
 
 [node name="player" parent="." instance=ExtResource("1_p51h7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0157788, -0.0529803, 0.012177)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0268428, 0.00573289, 0.123159)
 
 [node name="Camera3D" type="Camera3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 0.971491, 0.237076, 0, -0.237076, 0.971491, 0, 1.95972, 2.58418)
+
+[node name="box" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.256455, 0.458406, 1.97272)
+mesh = SubResource("BoxMesh_mg2ap")
+surface_material_override/0 = SubResource("StandardMaterial3D_oclob")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box/StaticBody3D"]
+shape = SubResource("BoxShape3D_ph3k0")
