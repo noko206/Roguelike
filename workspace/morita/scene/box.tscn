@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c02ouiunbuhig"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3g07h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbuu8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jlp4n"]
+
+[node name="box" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61239, 0)
+physics_material_override = SubResource("PhysicsMaterial_3g07h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xbuu8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jlp4n")
