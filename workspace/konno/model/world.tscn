@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlaio0yv0l1wl"]
+
+[ext_resource type="PackedScene" uid="uid://482rxnrhe64v" path="res://workspace/konno/model/bee_bot/bee_bot_skin.tscn" id="1_tb5f5"]
+
+[sub_resource type="GDScript" id="GDScript_g7kiu"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kvgmk"]
+sky_top_color = Color(0.643805, 0.793756, 0.974279, 1)
+sky_horizon_color = Color(0.791774, 0.918772, 0.930527, 1)
+ground_bottom_color = Color(0.523291, 0.881334, 0.747829, 1)
+ground_horizon_color = Color(0.791774, 0.918772, 0.930527, 1)
+
+[sub_resource type="Sky" id="Sky_mhp4m"]
+sky_material = SubResource("ProceduralSkyMaterial_kvgmk")
+
+[sub_resource type="Environment" id="Environment_w28qo"]
+background_mode = 2
+sky = SubResource("Sky_mhp4m")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjpjn"]
+albedo_color = Color(0.756863, 0.854902, 0.627451, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vqxfl"]
+material = SubResource("StandardMaterial3D_xjpjn")
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrwj0"]
+size = Vector3(50, 0.1, 50)
+
+[node name="world" type="Node"]
+script = SubResource("GDScript_g7kiu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w28qo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_vqxfl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_rrwj0")
+
+[node name="BeebotSkin" parent="." instance=ExtResource("1_tb5f5")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0.335904, 0)
+
+[node name="Camera3D" type="Camera3D" parent="BeebotSkin"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3, 4)
