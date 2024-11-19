@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccb7736g5r2hw"]
+
+[ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://model/sophia/sophia_skin.tscn" id="1_jfp6x"]
+[ext_resource type="Script" path="res://scene/dungeon.gd" id="1_jjtec"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w1h0s"]
+sky_top_color = Color(0.643805, 0.793756, 0.974279, 1)
+sky_horizon_color = Color(0.791774, 0.918773, 0.930527, 1)
+ground_bottom_color = Color(0.523291, 0.881334, 0.747829, 1)
+ground_horizon_color = Color(0.791774, 0.918773, 0.930527, 1)
+
+[sub_resource type="Sky" id="Sky_ci24j"]
+sky_material = SubResource("ProceduralSkyMaterial_w1h0s")
+
+[sub_resource type="Environment" id="Environment_mbwsr"]
+background_mode = 2
+sky = SubResource("Sky_ci24j")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Dungeon" type="Node3D"]
+script = ExtResource("1_jjtec")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mbwsr")
+
+[node name="SophiaSkin" parent="." instance=ExtResource("1_jfp6x")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)

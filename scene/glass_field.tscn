@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsfrwn3ckba74"]
+
+[ext_resource type="PackedScene" uid="uid://drpjdthylmq6g" path="res://model/Cube_Dirt_Single.blend" id="1_h1f5o"]
+
+[node name="GlassField" type="Node3D"]
+
+[node name="Cube_Dirt_Single2" parent="." instance=ExtResource("1_h1f5o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
