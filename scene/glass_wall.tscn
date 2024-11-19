@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5kuwi0uleinp"]
+
+[ext_resource type="PackedScene" uid="uid://1a0fdc57lk6y" path="res://model/Cube_Grass_Single.blend" id="1_pwdhx"]
+
+[node name="GlassWall" type="Node3D"]
+
+[node name="Cube_Grass_Single2" parent="." instance=ExtResource("1_pwdhx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

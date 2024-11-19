@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://86in48o6ls7s"]
+[gd_scene load_steps=7 format=3 uid="uid://cqrph4o024soo"]
 
 [ext_resource type="PackedScene" uid="uid://i8s804e1efdh" path="res://workspace/morita/scene/player.tscn" id="1_p51h7"]
 
