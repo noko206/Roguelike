@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://ud4uq0qq5eeh"]
+
+[ext_resource type="Script" path="res://scene/game/game.gd" id="1_4760p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d2i4e"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(0.910802, 0.869552, 0.888074, 1)
+sky_energy_multiplier = 8.0
+ground_bottom_color = Color(0.643207, 0.478207, 0.552295, 1)
+ground_horizon_color = Color(0.910802, 0.869552, 0.888074, 1)
+
+[sub_resource type="Sky" id="Sky_vlrlu"]
+sky_material = SubResource("ProceduralSkyMaterial_d2i4e")
+
+[sub_resource type="Environment" id="Environment_s28rt"]
+background_mode = 2
+sky = SubResource("Sky_vlrlu")
+
+[node name="GameScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s28rt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.999925, -0.0110451, 0.00522099, 0, 0.427358, 0.904083, -0.0122169, 0.904015, -0.427326, 0, 0, 0)
+light_energy = 0.35
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.14603, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 483.0
+offset_right = 249.0
+offset_bottom = 562.0
+script = ExtResource("1_4760p")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
