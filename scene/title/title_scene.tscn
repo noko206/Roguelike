@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo8kmem1inhct"]
+[gd_scene load_steps=6 format=3 uid="uid://bo8kmem1inhct"]
 
 [ext_resource type="Script" path="res://scene/title/title.gd" id="1_ao5n2"]
+[ext_resource type="Script" path="res://scene/title/title_fade.gd" id="1_jj6e3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e0ua2"]
 
@@ -8,25 +9,18 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_e2i1j"]
 
-[node name="Title" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = -1.0
-offset_bottom = -1.0
+[node name="Title" type="Node2D"]
+script = ExtResource("1_jj6e3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0, 0.596078, 0.333333, 1)
 material = SubResource("CanvasItemMaterial_e0ua2")
-layout_mode = 0
-offset_left = -11.0
-offset_top = -13.0
-offset_right = 1217.0
-offset_bottom = 706.0
+offset_left = -42.0
+offset_top = -15.0
+offset_right = 1186.0
+offset_bottom = 704.0
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
 offset_left = 317.0
 offset_top = 488.0
 offset_right = 860.0
@@ -36,7 +30,6 @@ script = ExtResource("1_ao5n2")
 
 [node name="Label" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_gb85k")
-layout_mode = 0
 offset_left = 282.0
 offset_top = 84.0
 offset_right = 891.0
